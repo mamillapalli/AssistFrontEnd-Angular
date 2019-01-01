@@ -17,12 +17,16 @@ export class JwtAuthServiceService {
     const Token = sessionStorage.getItem('Token');
     console.log(`token value is ${sessionStorage.getItem('Token')}`);
     if ( Token !== null) {
+      console.log(`cloning request with header`);
       request = request.clone({
+        
         setHeaders : {
           Authorization : Token
         }
       });
+      console.log(`request cloned with header`);
     }
+    // console.log(request.headers.getAll);
     return next.handle(request);
   }
 }

@@ -24,7 +24,7 @@ export class OrganizationService {
     console.log('trying to update organization in service method');
     return this.http.put<any>(`${BACK_END_URI}/organizations/${id}`, organization);
   }
-  createOrganization(id, organization) {
+  createOrganization(organization) {
     return this.http.post<any>(`${BACK_END_URI}/organizations`, organization);
   }
 }

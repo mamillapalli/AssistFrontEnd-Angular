@@ -3,6 +3,7 @@ import { ServerDataSource } from 'ng2-smart-table';
 import { HttpClient } from '@angular/common/http';
 import {Organization} from './model/organization';
 import { OrganizationService } from './service/organization.service';
+import { Router } from '@angular/router';
  
 
 @Component({
@@ -64,25 +65,27 @@ export class OrganizationComponent implements OnInit {
 
 
 
-  constructor(private http: HttpClient, private organizationService: OrganizationService) {
+  constructor(private http: HttpClient,
+     private organizationService: OrganizationService,
+     private router: Router) {
     console.log('constructor');
    
     this.source = new ServerDataSource(http, { endPoint: 'http://localhost:8080/organizations' });
  
     
     // to use for search criteria
-    this.organizationService.getOrganizationList().subscribe(
-      response => {
-        this.organizations = response;
-        for (let organization of this.organizations) {
-          console.log(`${organization.id}`); 
-          console.log(`${organization.name}`); 
-          console.log(`${organization.location}`); 
-          console.log(`${organization.email}`);
-          console.log(`${organization.active}`);  // 1, "string", false
-        }
-      }
-    );
+    // this.organizationService.getOrganizationList().subscribe(
+    //   response => {
+    //     this.organizations = response;
+    //     for (let organization of this.organizations) {
+    //       console.log(`${organization.id}`); 
+    //       console.log(`${organization.name}`); 
+    //       console.log(`${organization.location}`); 
+    //       console.log(`${organization.email}`);
+    //       console.log(`${organization.active}`);  // 1, "string", false
+    //     }
+    //   }
+    // );
     
    }
 
@@ -97,7 +100,7 @@ export class OrganizationComponent implements OnInit {
       console.log(`trying to update the organization with id ${event.newData['id']}`)
       this.organizaiton = new Organization(event.newData['id'],event.newData['name'],
       event.newData['location'],event.newData['email'],event.newData['active']);
-      this.organizationService.createOrganization(this.organizaiton.id,this.organizaiton).subscribe(
+      this.organizationService.createOrganization(this.organizaiton).subscribe(
         response => {
           console.log("organization creation succesful");
         }
@@ -138,6 +141,12 @@ export class OrganizationComponent implements OnInit {
     } else {
       event.confirm.reject();
     }
+  }
+
+  createOrganization()
+  {
+    console.log(`on click of create organizaiton button`);
+    this.router.navigate(['/pages/createOrganization']);
   }
 
 }
