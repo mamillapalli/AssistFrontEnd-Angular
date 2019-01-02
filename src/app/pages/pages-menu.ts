@@ -53,6 +53,22 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'User',
         link: '/pages/user',
       },
+      {
+        title: 'Status',
+        link: '/pages/status',
+      },
+      {
+        title: 'Roles',
+        link: '/pages/Role',
+      },
+      {
+        title: 'RolePreference',
+        link: '/pages/RolePreference',
+      },
+      {
+        title: 'UserRole',
+        link: '/pages/UserRole',
+      },
     ],
   },
 ];

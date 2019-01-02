@@ -11,6 +11,11 @@ import { CustomerComponent } from './admin/customer/customer.component';
 import {CreateCustomerComponent} from './admin/customer/createCustomer.component';
 import { UserComponent } from './admin/user/user.component';
 import { CreateUserComponent } from './admin/user/createUser.component';
+import {ListStatusComponent} from './admin/status/list-status/list-status.component'
+import {ListRoleComponent} from './admin/role/list-role/list-role.component'
+import {ListRolePreferenceComponent} from './admin/role-preference/list-role-preference/list-role-preference.component'
+import {ListUserRoleComponent} from './admin/user-role/list-user-role/list-user-role.component';
+
 
 
 const routes: Routes = [{
@@ -57,6 +62,22 @@ const routes: Routes = [{
     {
       path: 'createUser',
       component: CreateUserComponent,
+    },
+    {
+      path: 'status',
+      component: ListStatusComponent,
+    },
+    {
+      path: 'Role',
+      component: ListRoleComponent,
+    },
+    {
+      path: 'UserRole',
+      component: ListUserRoleComponent,
+    },
+    {
+      path: 'RolePreference',
+      component: ListRolePreferenceComponent,
     },
   ],
 }];

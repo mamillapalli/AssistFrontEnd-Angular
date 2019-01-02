@@ -11,12 +11,21 @@ import { PagesRoutingModule } from '../pages-routing.module';
 
 import { MiscellaneousModule } from '../miscellaneous/miscellaneous.module';
 
+import {StatusModule} from '../admin/status/status.module';
+import {RoleModule}  from '../admin/role/role.module';
+import {UserRoleModule} from '../admin/user-role/user-role.module';
+import {RolePreferenceModule} from '../admin/role-preference/role-preference.module';
+
 const ADMIN_COMPONENTS = [
   
   OrganizationModule,
   CustomerModule,
   UserModule,
-  ProductModule
+  ProductModule,
+  StatusModule,
+  RoleModule,
+  UserRoleModule,
+  RolePreferenceModule,
 
 ];
 
@@ -24,6 +33,10 @@ const ADMIN_COMPONENTS = [
   
   imports: [
     CommonModule,OrganizationModule,CustomerModule,UserModule,ProductModule,
+    StatusModule,
+    RoleModule,
+    UserRoleModule,
+    RolePreferenceModule,
     PagesRoutingModule,
     ThemeModule,
     DashboardModule,
