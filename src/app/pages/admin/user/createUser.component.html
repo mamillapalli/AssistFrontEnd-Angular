@@ -1,0 +1,90 @@
+<div class="row">
+
+  <div class="container-fluid">
+
+    <div class="alert alert-danger" *ngIf="firstname.dirty && firstname.invalid">
+      First Name Should be Minimum of 3 Characters
+    </div>
+    <div class="alert alert-danger" *ngIf="lastname.dirty && lastname.invalid">
+      Last Name Should be Minimum of 3 Characters
+    </div>
+    <div class="alert alert-danger" *ngIf="email.dirty && email.invalid">
+      Invalid email address!!
+    </div>
+
+    <!-- <div class="alert alert-danger" *ngIf="targetDate.dirty && targetDate.invalid">
+                Invalid targetDate
+        </div>    -->
+
+    <div class="col-md-10">
+      <nb-card>
+        <nb-card-header>User Maintenance</nb-card-header>
+        <nb-card-body>
+          <form class="form-horizontal" (ngSubmit)="!userForm.invalid &&saveUser(user)" #userForm="ngForm">
+            <div class="form-group row">
+              <label for="Firstname" class="col-sm-3 form-control-label">Firstname</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" [(ngModel)]="user.firstname" name="firstname" id="firstname"
+                  placeholder="firstname" required="required" minlength="3" #firstname="ngModel">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="lasname" class="col-sm-3 form-control-label">LastName</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" [(ngModel)]="user.lastname" name="lastname" id="lastname"
+                  placeholder="lastname" required="required" minlength="3" #lastname="ngModel">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="email" class="col-sm-3 form-control-label">Email</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" [(ngModel)]="user.email" name="email" id="email" placeholder="email"
+                  required="required" #email="ngModel" email>
+                <!-- <input type="email" class="form-control" id="email" placeholder="email"> -->
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="organization" class="col-sm-3 form-control-label">Organization</label>
+              <div class="col-sm-9">
+
+                <nb-select outline status="primary" name="organization" id="organization" placeholder="" [(ngModel)]="user.organization.id"
+                  #organizationName="ngModel">
+                  <nb-option *ngFor="let o of organizations" value="{{o.id}}">{{o.name}}</nb-option>
+                </nb-select>
+
+
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="customer" class="col-sm-3 form-control-label">Customer</label>
+              <div class="col-sm-9">
+
+                <nb-select outline status="primary" name="customer" id="customer" placeholder="" [(ngModel)]="user.customer.id"
+                  #organizationName="ngModel">
+                  <nb-option *ngFor="let c of customers" value="{{c.id}}">{{c.name}}</nb-option>
+                </nb-select>
+
+
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="offset-sm-3 col-sm-9">
+                <div class="checkbox">
+                  <nb-checkbox id="active" status="success" value=true>Active</nb-checkbox>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="offset-sm-3 col-sm-9">
+                <button nbButton status="success" type="submit" disabled="{{userForm.invalid}}">Submit</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button nbButton status="warning" (click)="cancel()">Cancel</button>
+              </div>
+            </div>
+
+          </form>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>

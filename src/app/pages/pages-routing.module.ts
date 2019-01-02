@@ -8,7 +8,9 @@ import { CreateOrganizationComponent } from './admin/organization/createOrganiza
 import { ProductComponent } from './admin/product/product.component';
 import { createProductComponent } from './admin/product/createProduct.component';
 import { CustomerComponent } from './admin/customer/customer.component';
+import {CreateCustomerComponent} from './admin/customer/createCustomer.component';
 import { UserComponent } from './admin/user/user.component';
+import { CreateUserComponent } from './admin/user/createUser.component';
 
 
 const routes: Routes = [{
@@ -37,6 +39,10 @@ const routes: Routes = [{
       component: CustomerComponent,
     },
     {
+      path: 'createCustomer',
+      component: CreateCustomerComponent,
+    },
+    {
       path: 'product',
       component: ProductComponent,
     },
@@ -47,6 +53,10 @@ const routes: Routes = [{
     {
       path: 'user',
       component: UserComponent,
+    },
+    {
+      path: 'createUser',
+      component: CreateUserComponent,
     },
   ],
 }];

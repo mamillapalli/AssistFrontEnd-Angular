@@ -145,7 +145,7 @@ export class ProductComponent implements OnInit {
 
   createProduct()
   {
-    console.log(`on click of create organizaiton button`);
+    console.log(`on click of create product button`);
     this.router.navigate(['/pages/createProduct']);
   }
 
