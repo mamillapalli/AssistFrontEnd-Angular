@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ServerDataSource } from 'ng2-smart-table';
+import { HttpClient } from '@angular/common/http';
+import { RolePreferenceService } from '../service/RolePreference.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'list-role-preference',
@@ -6,8 +10,56 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-role-preference.component.scss']
 })
 export class ListRolePreferenceComponent implements OnInit {
+  source: ServerDataSource;
 
-  constructor() { }
+  settings = {
+    noDataMessage : 'No data found',
+    actions:
+    {
+      delete : false,
+      add: false,
+    },
+    add: {
+      confirmCreate: true,
+    },
+    edit: {
+      confirmSave: true,
+    },  
+    columns: {
+      id: {
+        title: 'ID',
+        filter: false,
+      },
+      role: {
+        title: 'Role Name',
+        filter: false,
+      },
+      byIssue: {
+        title: 'On Each Issue',
+        filter: false,
+      },
+      endOfDay: {
+        title: 'End Of Day',
+        filter: false,
+      },
+      weekly: {
+        title: 'End Of Week',
+        filter: false,
+      },
+      monthly: {
+        title: 'End Of Month',
+        filter: false,
+      },
+
+    }
+  };
+  constructor(private http: HttpClient,
+    private rolePreferenceService: RolePreferenceService,
+    private router: Router) {
+   console.log('constructor');
+  
+   this.source = new ServerDataSource(http, { endPoint: 'http://localhost:8080/rolePreferences' });
+    }
 
   ngOnInit() {
   }
