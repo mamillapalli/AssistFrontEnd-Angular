@@ -10,7 +10,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getPrductsList() {
+  getProductsList() {
     return this.http.get<any[]>(`${BACK_END_URI}/products`);
   }
 

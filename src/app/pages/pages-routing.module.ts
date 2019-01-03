@@ -11,10 +11,14 @@ import { CustomerComponent } from './admin/customer/customer.component';
 import {CreateCustomerComponent} from './admin/customer/createCustomer.component';
 import { UserComponent } from './admin/user/user.component';
 import { CreateUserComponent } from './admin/user/createUser.component';
-import {ListStatusComponent} from './admin/status/list-status/list-status.component'
-import {ListRoleComponent} from './admin/role/list-role/list-role.component'
-import {ListRolePreferenceComponent} from './admin/role-preference/list-role-preference/list-role-preference.component'
+import {ListStatusComponent} from './admin/status/list-status/list-status.component';
+import {CreateStatusComponent} from './admin/status/create/createStatus.component';
+import {ListRoleComponent} from './admin/role/list-role/list-role.component';
+import {CreateRoleComponent} from './admin/role/create/createRole.component';
+import {ListRolePreferenceComponent} from './admin/role-preference/list-role-preference/list-role-preference.component';
+import {CreateRolePreferenceComponent} from './admin/role-preference/create/createRolePreference.component';
 import {ListUserRoleComponent} from './admin/user-role/list-user-role/list-user-role.component';
+import {CreateUserRoleComponent} from './admin/user-role/create/createUserRole.component';
 
 
 
@@ -68,16 +72,32 @@ const routes: Routes = [{
       component: ListStatusComponent,
     },
     {
+      path: 'createStatus',
+      component: CreateStatusComponent,
+    },
+    {
       path: 'Role',
       component: ListRoleComponent,
+    },
+    {
+      path: 'createRole',
+      component: CreateRoleComponent,
     },
     {
       path: 'UserRole',
       component: ListUserRoleComponent,
     },
     {
+      path: 'CreateUserRole',
+      component: CreateUserRoleComponent,
+    },
+    {
       path: 'RolePreference',
       component: ListRolePreferenceComponent,
+    },
+    {
+      path: 'CreateRolePreference',
+      component: CreateRolePreferenceComponent,
     },
   ],
 }];

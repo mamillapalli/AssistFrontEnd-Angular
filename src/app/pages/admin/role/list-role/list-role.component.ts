@@ -56,4 +56,11 @@ export class ListRoleComponent implements OnInit {
   ngOnInit() {
   }
 
+  createRole() {
+
+    console.log(`on click of create role button`);
+    this.router.navigate(['/pages/createRole']);
+  
+  }
+
 }

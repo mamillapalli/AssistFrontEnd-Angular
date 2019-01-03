@@ -1,1 +1,9 @@
 export const BACK_END_URI = 'http://localhost:8080';
+export const BACK_END_STATUS_URI = '/status';
+export const BACK_END_USERS_URI = '/users';
+export const BACK_END_ROLES_URI = '/roles';
+export const BACK_END_ORGANIZATIONS_URI = '/organizations';
+export const BACK_END_CUSTOMERS_URI = '/customers';
+export const BACK_END_PRODUCTS_URI = '/products';
+export const BACK_END_USERROLES_URI = '/userRoles';
+export const BACK_END_ROLEPREFERENCES_URI = '/rolePreferences';

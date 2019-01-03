@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerDataSource } from 'ng2-smart-table';
 import { HttpClient } from '@angular/common/http';
-import { RolePreferenceService } from '../service/RolePreference.service';
+import { RolePreferenceService } from '../service/rolePreference.service';
+import { RoleNameRenderComponent } from './RoleNameRender.component';
 import { Router } from '@angular/router';
 
 @Component({
@@ -33,6 +34,8 @@ export class ListRolePreferenceComponent implements OnInit {
       role: {
         title: 'Role Name',
         filter: false,
+        type: 'custom',
+        renderComponent: RoleNameRenderComponent,
       },
       byIssue: {
         title: 'On Each Issue',
@@ -62,6 +65,11 @@ export class ListRolePreferenceComponent implements OnInit {
     }
 
   ngOnInit() {
+  }
+  createRolePreference() {
+
+    console.log('redirecting to create role preference page');
+    this.router.navigate(['/pages/CreateRolePreference']);
   }
 
 }

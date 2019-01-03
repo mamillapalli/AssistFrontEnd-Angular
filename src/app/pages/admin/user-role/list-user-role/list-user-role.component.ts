@@ -3,6 +3,10 @@ import { ServerDataSource } from 'ng2-smart-table';
 import { HttpClient } from '@angular/common/http';
 import { UserRoleService } from '../service/userRole.service';
 import { Router } from '@angular/router';
+import {CustomerNameRenderComponent} from './CustomerNameRender.component';
+import {UserNameRenderComponent} from './UserNameRender.component';
+import {ProductNameRenderComponent} from './ProductNameRender.component';
+import {RoleNameRenderComponent} from './RoleNameRender.component';
 
 @Component({
   selector: 'list-user-role',
@@ -34,18 +38,26 @@ export class ListUserRoleComponent implements OnInit {
       user: {
         title: 'User Name',
         filter: false,
+        type: 'custom',
+        renderComponent: UserNameRenderComponent,
       },
       cutomer: {
         title: 'Customer Name',
         filter: false,
+        type: 'custom',
+        renderComponent: CustomerNameRenderComponent,
       },
       product: {
         title: 'Product Name',
         filter: false,
+        type: 'custom',
+        renderComponent: ProductNameRenderComponent,
       },
       role: {
         title: 'Role Name',
         filter: false,
+        type: 'custom',
+        renderComponent: RoleNameRenderComponent,
       }
 
     }
@@ -60,6 +72,12 @@ export class ListUserRoleComponent implements OnInit {
     }
 
   ngOnInit() {
+  }
+  createUserRole() {
+
+    console.log(`on click of create userRole button`);
+    this.router.navigate(['/pages/CreateUserRole']);
+  
   }
 
 }

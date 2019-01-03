@@ -1,0 +1,64 @@
+<div class="row">
+
+  <div class="container-fluid">
+
+
+    <div class="col-md-10">
+      <nb-card>
+        <nb-card-header> RolePreferences Maintenance</nb-card-header>
+        <nb-card-body>
+          <form class="form-horizontal" (ngSubmit)="!RolePreferenceForm.invalid &&saveRolePreference(rolePreference)"
+            #RolePreferenceForm="ngForm">
+            <div class="form-group row">
+              <label for="role" class="col-sm-3 form-control-label">Role Name</label>
+              <div class="col-sm-9">
+
+                <nb-select outline status="primary" name="role" id="role" placeholder="" [(ngModel)]="rolePreference.role.id"
+                  required="required" #organizationName="ngModel">
+                  <nb-option *ngFor="let r of roles" value="{{r.id}}">{{r.name}}</nb-option>
+                </nb-select>
+
+
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="offset-sm-3 col-sm-9">
+                <div class="checkbox">
+                  <nb-checkbox id="byIssue" name="byIssue" status="success" [(ngModel)]="rolePreference.byIssue">On Each Issue</nb-checkbox>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="offset-sm-3 col-sm-9">
+                <div class="checkbox">
+                  <nb-checkbox id="endOfDay" name="endOfDay" status="success" [(ngModel)]="rolePreference.endOfDay">End Of Day</nb-checkbox>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="offset-sm-3 col-sm-9">
+                <div class="checkbox">
+                  <nb-checkbox id="weekly" name="weekly" status="success" [(ngModel)]="rolePreference.weekly">End Of the Week</nb-checkbox>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="offset-sm-3 col-sm-9">
+                <div class="checkbox">
+                  <nb-checkbox id="monnthly" name="monthly" status="success" [(ngModel)]="rolePreference.monthly">End of the Month</nb-checkbox>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="offset-sm-3 col-sm-9">
+                <button nbButton status="success" type="submit" disabled="{{RolePreferenceForm.invalid}}">Submit</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button nbButton status="warning" (click)="cancel()">Cancel</button>
+              </div>
+            </div>
+
+          </form>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>

@@ -1,6 +1,6 @@
 import {Role} from '../../role/model/Role';
 import {User} from '../../user/model/User';
-import {Customer} from '../../customer/model/Customer';
+import {Customer} from '../../customer/model/customer';
 import {Product} from '../../product/model/Product';
 export class UserRole {
     

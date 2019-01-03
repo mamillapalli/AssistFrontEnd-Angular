@@ -40,7 +40,7 @@ export class CreateCustomerComponent implements OnInit {
       }
     );
 
-    this.productService.getPrductsList().subscribe(
+    this.productService.getProductsList().subscribe(
       response => {
         console.log(`{{response}}`);
         this.products = response;
