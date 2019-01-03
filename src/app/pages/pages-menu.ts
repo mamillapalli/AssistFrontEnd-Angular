@@ -71,4 +71,19 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+  {
+    title: 'Support',
+    icon: 'nb-locked',
+    children: [
+      {
+        title: 'RegisterIssue',
+        link: '/pages/RegisterIssue',
+      },
+      {
+        title: 'ViewIssues',
+        link: '/pages/ViewIssues',
+      },
+
+    ],
+  },
 ];

@@ -19,6 +19,9 @@ import {ListRolePreferenceComponent} from './admin/role-preference/list-role-pre
 import {CreateRolePreferenceComponent} from './admin/role-preference/create/createRolePreference.component';
 import {ListUserRoleComponent} from './admin/user-role/list-user-role/list-user-role.component';
 import {CreateUserRoleComponent} from './admin/user-role/create/createUserRole.component';
+import {RegisterIssueComponent} from './support/register-issue/register-issue/register-issue.component';
+import {ViewIssueComponent} from './support/view-issue/view-issue/view-issue.component';
+import {AddEventComponent} from './support/view-issue/add-event/add-event.component';
 
 
 
@@ -35,6 +38,8 @@ const routes: Routes = [{
     //   redirectTo: 'dashboard',
     //   pathMatch: 'full',
     // },
+
+
     {
       path: 'organization',
       component: OrganizationComponent,
@@ -98,6 +103,18 @@ const routes: Routes = [{
     {
       path: 'CreateRolePreference',
       component: CreateRolePreferenceComponent,
+    },
+    {
+      path: 'RegisterIssue',
+      component: RegisterIssueComponent,
+    },
+    {
+      path: 'ViewIssues',
+      component: ViewIssueComponent,
+    },
+    {
+      path: 'AddEvent',
+      component: AddEventComponent,
     },
   ],
 }];
