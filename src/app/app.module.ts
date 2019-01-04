@@ -16,6 +16,10 @@ import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NbAuthModule,NbPasswordAuthStrategy,NbAuthJWTToken } from '@nebular/auth';
 import {JwtAuthServiceService} from './@core/interceptor/jwt-auth-service.service';
+import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
+// import { of as observableOf } from 'rxjs/observable/of';
+import {RoleProvider} from './role.provider';
+
 
 
 
@@ -44,6 +48,7 @@ import {JwtAuthServiceService} from './@core/interceptor/jwt-auth-service.servic
               failure: '',
             },
           },
+          logout: { method: null, redirect: { success: '/pages/user', failure: '/' } },
           token: {
             class: NbAuthJWTToken,
             key: 'token', 
@@ -57,13 +62,31 @@ import {JwtAuthServiceService} from './@core/interceptor/jwt-auth-service.servic
         showMessages: {     // show/not show success/error messages
           success: true,
           error: true,
-        }}},
-    })
+        }},
+        logout: {
+          redirectDelay: 0,
+          strategy: 'email',
+        }},
+    }),
+        NbSecurityModule.forRoot({
+      accessControl: {
+        ADMIN: {
+          view: ['Dashboard','Admin','Support'],
+          
+        },
+        CUSTOMER: {
+          view: ['Support'],
+          
+        },
+      },
+    }),
   ],
   bootstrap: [AppComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     {provide: HTTP_INTERCEPTORS, useClass: JwtAuthServiceService, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: JwtAuthServiceService, multi: true},
+    { provide: NbRoleProvider, useClass: RoleProvider },
   ],
 })
 export class AppModule {

@@ -16,6 +16,9 @@ import {RoleNameRenderComponent} from './RoleNameRender.component';
 export class ListUserRoleComponent implements OnInit {
 
   source: ServerDataSource;
+  loadingTable: any;
+  // ravi: number;
+  
 
   settings = {
     noDataMessage : 'No data found',
@@ -67,8 +70,17 @@ export class ListUserRoleComponent implements OnInit {
     private userRoleService: UserRoleService,
     private router: Router) {
    console.log('constructor');
-  
+   this.loadingTable = true;
    this.source = new ServerDataSource(http, { endPoint: 'http://localhost:8080/userRoles' });
+   this.source.onChanged().subscribe(
+    response => {
+      console.log("userRole creation succesful");
+      this.loadingTable = false;
+    },
+    error => {
+      console.log(" userRole unsuccesful");
+    }
+   );
     }
 
   ngOnInit() {

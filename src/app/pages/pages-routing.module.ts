@@ -23,6 +23,8 @@ import {RegisterIssueComponent} from './support/register-issue/register-issue/re
 import {ViewIssueComponent} from './support/view-issue/view-issue/view-issue.component';
 import {AddEventComponent} from './support/view-issue/add-event/add-event.component';
 
+import {CsmeLogoutComponent} from './csmeLogout/csmelogout.component';
+
 
 
 const routes: Routes = [{
@@ -32,6 +34,10 @@ const routes: Routes = [{
     {
       path: 'dashboard',
       component: DashboardComponent,
+    },
+    {
+      path: 'csmeLogout',
+      component: CsmeLogoutComponent,
     },
     // {
     //   path: '',

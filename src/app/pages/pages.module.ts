@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { DashboardModule } from './dashboard/dashboard.module';
+import {CsmeLogoutModule} from './csmeLogout/csmelogout.module';
 import { AdminModule } from './admin/admin.module';
 import { SupportModule } from './support/support.module';
 import { PagesRoutingModule } from './pages-routing.module';
@@ -20,6 +21,7 @@ const PAGES_COMPONENTS = [
     AdminModule,
     SupportModule,
     MiscellaneousModule,
+    CsmeLogoutModule
   ],
   declarations: [
     ...PAGES_COMPONENTS,

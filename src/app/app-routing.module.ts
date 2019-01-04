@@ -1,9 +1,5 @@
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-// import { OrganizationComponent } from './admin/organization/organization.component';
-// import { ProductComponent } from './admin/product/product.component';
-// import { CustomerComponent } from './admin/customer/customer.component';
-// import { UserComponent } from './admin/user/user.component';
 import {
   NbAuthComponent,
   NbLoginComponent,

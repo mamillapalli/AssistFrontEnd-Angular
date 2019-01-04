@@ -48,7 +48,7 @@
     "@nebular/auth": "3.0.0",
     "@nebular/bootstrap": "3.0.0",
     "@nebular/security": "3.0.0",
-    "@nebular/theme": "^3.0.0",
+    "@nebular/theme": "^3.1.0",
     "@ng-bootstrap/ng-bootstrap": "^4.0.0",
     "bootstrap": "4.0.0",
     "classlist.js": "1.1.20150312",

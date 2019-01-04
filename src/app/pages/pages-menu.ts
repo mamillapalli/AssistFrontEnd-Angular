@@ -1,12 +1,16 @@
 import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
-  // {
-  //   title: 'Dashboard',
-  //   icon: 'nb-home',
-  //   link: '/pages/dashboard',
-  //   home: true,
-  // },
+  {
+    title: 'Dashboard',
+    icon: 'nb-home',
+    data: {
+      permission: 'view',
+      resource: 'Dashboard'
+      },
+    link: '/pages/dashboard',
+    home: true,
+  },
   {
     title: 'FUNCTIONS',
     group: true,
@@ -36,6 +40,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Admin',
     icon: 'nb-locked',
+    data: {
+    permission: 'view',
+    resource: 'Admin'
+    },
     children: [
       {
         title: 'Organization',
@@ -73,7 +81,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Support',
-    icon: 'nb-locked',
+    icon: 'nb-lightbulb',
+    data: {
+      permission: 'view',
+      resource: 'Support'
+      },
     children: [
       {
         title: 'RegisterIssue',

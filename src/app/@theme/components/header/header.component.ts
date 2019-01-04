@@ -17,10 +17,10 @@ export class HeaderComponent implements OnInit {
 
   @Input() position = 'normal';
 
-  // user: any;
-  user = {};
+  user: any;
+  //user = {};
 
-  userMenu = [{ title: 'Profile' }, { title: 'Log out',link: '/logout' }];
+  userMenu = [{ title: 'Profile' }, { title: 'Log out', link: '/pages/csmeLogout' }];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
@@ -36,6 +36,8 @@ export class HeaderComponent implements OnInit {
                     console.log("ASSIGNING TOKEN TO USER VARIABLE");
                     this.user = token.getPayload(); // here we receive a payload from the token and assigne it to our `user` variable 
                    // this.router.navigate(['auth/logout']);
+                  //  console.log(token.get)
+                   console.log(token.getPayload()['role']);
                    sessionStorage.setItem('Token', `Bearer ${token}`);
                    console.log(this.user);
                   }
