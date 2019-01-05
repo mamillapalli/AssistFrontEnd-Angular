@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   user: any;
   //user = {};
 
-  userMenu = [{ title: 'Profile' }, { title: 'Log out', link: '/pages/csmeLogout' }];
+  userMenu = [{ title: 'reset-password', link: '/auth/reset-password' }, { title: 'Log out', link: '/pages/csmeLogout' }];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,

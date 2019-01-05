@@ -13,6 +13,7 @@ import { HttpClient } from '@angular/common/http';
 export class UserComponent implements OnInit {
 
   source: ServerDataSource;
+  loadingTable = true;
 
   settings = {
     noDataMessage : 'No data found',
@@ -69,6 +70,15 @@ export class UserComponent implements OnInit {
     console.log(`in user component`);
     this.source = new ServerDataSource(http, { endPoint: 'http://localhost:8080/users' });
     console.log(this.source);
+    this.source.onChanged().subscribe(
+      response => {
+        console.log("userRole creation succesful");
+        this.loadingTable = false;
+      },
+      error => {
+        console.log(" userRole unsuccesful");
+      }
+     );
   }
 
   ngOnInit() {

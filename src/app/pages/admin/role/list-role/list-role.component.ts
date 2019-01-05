@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ListRoleComponent implements OnInit {
   source: ServerDataSource;
+  loadingTable = true;
 
   settings = {
     noDataMessage : 'No data found',
@@ -51,6 +52,15 @@ export class ListRoleComponent implements OnInit {
    console.log('constructor');
   
    this.source = new ServerDataSource(http, { endPoint: 'http://localhost:8080/roles' });
+   this.source.onChanged().subscribe(
+    response => {
+      console.log("userRole creation succesful");
+      this.loadingTable = false;
+    },
+    error => {
+      console.log(" userRole unsuccesful");
+    }
+   );
     }
 
   ngOnInit() {

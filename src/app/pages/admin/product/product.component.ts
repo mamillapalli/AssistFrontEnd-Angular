@@ -15,6 +15,7 @@ export class ProductComponent implements OnInit {
   
   source: ServerDataSource;
   products : Product[];
+  loadingTable = true;
 
   settings = {
     noDataMessage : 'No data found',
@@ -67,6 +68,16 @@ export class ProductComponent implements OnInit {
    
       this.source = new ServerDataSource(http, { endPoint: 'http://localhost:8080/products' });
       console.log(this.source);
+
+      this.source.onChanged().subscribe(
+        response => {
+          console.log("userRole creation succesful");
+          this.loadingTable = false;
+        },
+        error => {
+          console.log(" userRole unsuccesful");
+        }
+       );
 
 
           // to use for search criteria

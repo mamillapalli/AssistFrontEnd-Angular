@@ -35,6 +35,7 @@ export class CsmeLogoutComponent  {
 
   
     console.log('in constructor of csmelogout component');
+    sessionStorage.removeItem('Token');
     console.log(this.router);
     this.router.navigate(['auth/login']);
     // this.router.navigateByUrl('auth/login').then(e => {

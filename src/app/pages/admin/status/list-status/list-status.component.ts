@@ -15,6 +15,7 @@ export class ListStatusComponent implements OnInit {
 
   source: ServerDataSource;
   status: Status;
+  loadingTable = true;
 
   settings = {
     noDataMessage : 'No data found',
@@ -52,6 +53,15 @@ export class ListStatusComponent implements OnInit {
    console.log('constructor');
   
    this.source = new ServerDataSource(http, { endPoint: 'http://localhost:8080/status' });
+   this.source.onChanged().subscribe(
+    response => {
+      console.log("userRole creation succesful");
+      this.loadingTable = false;
+    },
+    error => {
+      console.log(" userRole unsuccesful");
+    }
+   );
     }
 
   ngOnInit() {
