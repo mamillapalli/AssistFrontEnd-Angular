@@ -19,6 +19,7 @@ import {JwtAuthServiceService} from './@core/interceptor/jwt-auth-service.servic
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 // import { of as observableOf } from 'rxjs/observable/of';
 import {RoleProvider} from './role.provider';
+import {CookieXSRFStrategy, XSRFStrategy} from '@angular/http';
 
 
 
@@ -85,8 +86,10 @@ import {RoleProvider} from './role.provider';
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     {provide: HTTP_INTERCEPTORS, useClass: JwtAuthServiceService, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: JwtAuthServiceService, multi: true},
+    // {provide: HTTP_INTERCEPTORS, useClass: JwtAuthServiceService, multi: true},
     { provide: NbRoleProvider, useClass: RoleProvider },
+
+  {provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrftoken', 'X-CSRFToken')}
   ],
 })
 export class AppModule {

@@ -7,3 +7,5 @@ export const BACK_END_CUSTOMERS_URI = '/customers';
 export const BACK_END_PRODUCTS_URI = '/products';
 export const BACK_END_USERROLES_URI = '/userRoles';
 export const BACK_END_ROLEPREFERENCES_URI = '/rolePreferences';
+export const BACK_END_ISSUES_URI = '/issues';
+export const BACK_END_EVENTS_URI = '/events';
